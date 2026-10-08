@@ -1,19 +1,12 @@
 import Image from "next/image";
 import Card from "./Card"
+import { FullApi } from "@/utils/api";
 
 
-const GetLibraryData = async () => {
-  const response = await fetch("https://api.api-store.workers.dev/api/fitlog");
-  if (!response.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  const data = await response.json();
-
-  return data;
-};
 
 const LibrarySection = async () => {
-  const librarysData = await GetLibraryData();
+  
+  const librarysData = await FullApi();
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">

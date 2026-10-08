@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
     return (
-        <nav className="container mx-auto flex items-center justify-between p-4 bg-gray-800 text-white">
+        <nav className="container mx-auto flex items-center justify-between p-2 bg-gray-800 text-white">
             <div className="flex items-center justify-between gap-5 p-4 text-white ">
 
                 <Image src="/logo.png" alt="Logo" width={100} height={50} />
@@ -16,7 +16,7 @@ const Navbar = () => {
             <div className="flex items-center justify-between gap-5 p-4 text-white">
                 <ul className="flex items-center justify-between gap-5 p-4 text-white ">
 
-                    <Link href="/workouts"><li>Workouts</li></Link>
+                    <Link href="/workout"><li>Workout</li></Link>
                     <Link href="/my-plan"><li>My Plan</li></Link>
                 </ul>
 
