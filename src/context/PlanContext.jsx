@@ -1,25 +1,32 @@
 "use client";
 
-import { createContext,useContext, useState } from 'react';
-import {toast} from 'react-hot-toast';
+import { createContext, useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 
-const PlanContext = createContext();   //creating context
+const PlanContext = createContext();
 
-const ContextProvider = ({children}) => {
+const ContextProvider = ({ children }) => {
 
-    // store which data in variable and set the data in state variable
     const [plan, setPlan] = useState([]);
     const [saved, setSaved] = useState([]);
-
-    
+    const [completed, setCompleted] = useState([]);
 
     return (
-        // creating provider and passing data as value and wrapping children with provider so that all the components can access the data
-        <PlanContext.Provider value ={{plan, setPlan, saved, setSaved}}>{children}</PlanContext.Provider>
+        <PlanContext.Provider
+            value={{
+                plan,
+                setPlan,
+                saved,
+                setSaved,
+                completed,
+                setCompleted
+            }}
+        >
+            {children}
+        </PlanContext.Provider>
     );
 };
 
 export const usePlan = () => useContext(PlanContext);
 
 export default ContextProvider;
-    

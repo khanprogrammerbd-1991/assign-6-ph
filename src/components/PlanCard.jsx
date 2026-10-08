@@ -5,11 +5,17 @@ import Link from "next/link";
 import { usePlan } from "@/context/PlanContext";
 
 const PlanCard = ({ item, type }) => {
+    const {
+        plan,
+        setPlan,
+        saved,
+        setSaved,
+        completed,
+        setCompleted,
+    } = usePlan();
 
-    const { plan, setPlan, saved, setSaved } = usePlan();
-
+    // Remove workout
     const handleRemove = () => {
-
         if (type === "plan") {
             const updatedPlan = plan.filter(
                 (workout) => workout.id !== item.id
@@ -27,6 +33,30 @@ const PlanCard = ({ item, type }) => {
         }
     };
 
+    // Mark workout as completed
+    const handleDone = () => {
+        const workout = plan.find(
+            (workout) => workout.id === item.id
+        );
+
+        if (!workout) return;
+
+        // Prevent duplicate completed workouts
+        const alreadyCompleted = completed.some(
+            (workout) => workout.id === item.id
+        );
+
+        if (!alreadyCompleted) {
+            setCompleted([...completed, workout]);
+        }
+
+        // Remove from today's plan
+        setPlan(
+            plan.filter(
+                (workout) => workout.id !== item.id
+            )
+        );
+    };
 
     return (
         <div className="grid grid-cols-[220px_1fr] gap-6 bg-[#181b1d] border border-[#2a2d32] p-5">
@@ -42,10 +72,10 @@ const PlanCard = ({ item, type }) => {
                 />
             </div>
 
-
-            {/* Information */}
+            {/* Content */}
             <div className="flex flex-col justify-between">
 
+                {/* Workout Information */}
                 <div>
 
                     <p className="text-sm text-[#ccff00] uppercase font-bold">
@@ -60,8 +90,7 @@ const PlanCard = ({ item, type }) => {
                         {item.description}
                     </p>
 
-
-                    {/* Basic information */}
+                    {/* Workout Stats */}
                     <div className="flex gap-8 mt-5 text-sm">
 
                         <div>
@@ -74,7 +103,6 @@ const PlanCard = ({ item, type }) => {
                             </p>
                         </div>
 
-
                         <div>
                             <p className="text-gray-500">
                                 CALORIES
@@ -84,7 +112,6 @@ const PlanCard = ({ item, type }) => {
                                 {item.caloriesBurned} kcal
                             </p>
                         </div>
-
 
                         <div>
                             <p className="text-gray-500">
@@ -97,13 +124,12 @@ const PlanCard = ({ item, type }) => {
                         </div>
 
                     </div>
-
                 </div>
-
 
                 {/* Buttons */}
                 <div className="flex gap-4 mt-6">
 
+                    {/* View Details */}
                     <Link
                         href={`/workout/${item.id}`}
                         className="bg-[#ccff00] text-black px-5 py-3 font-bold"
@@ -111,7 +137,17 @@ const PlanCard = ({ item, type }) => {
                         View Details
                     </Link>
 
+                    {/* Mark as Done */}
+                    {type === "plan" && (
+                        <button
+                            onClick={handleDone}
+                            className="border border-[#ccff00] text-[#ccff00] px-5 py-3 font-bold"
+                        >
+                            Mark as Done
+                        </button>
+                    )}
 
+                    {/* Remove */}
                     <button
                         onClick={handleRemove}
                         className="border border-gray-600 px-5 py-3 font-bold text-white"
@@ -120,9 +156,7 @@ const PlanCard = ({ item, type }) => {
                     </button>
 
                 </div>
-
             </div>
-
         </div>
     );
 };
