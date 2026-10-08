@@ -19,5 +19,7 @@ const ContextProvider = ({children}) => {
     );
 };
 
+export const usePlan = () => useContext(PlanContext);
+
 export default ContextProvider;
     
