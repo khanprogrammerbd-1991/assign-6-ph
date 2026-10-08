@@ -8,7 +8,7 @@ const Hero = () => {
                 <div>
                     <h1>TRAIN WITH INTENT.LOG</h1>
                 <h1>EVERY SET.</h1>
-                <p>Fitlog is a dark.No nonnese companion.pick a lift and lock it to todays plan</p>
+                <p>FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today&apos;s plan, and watch the week&apos;s work add up.</p>
                 
                 </div>
                 <div>

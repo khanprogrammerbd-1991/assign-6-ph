@@ -8,6 +8,7 @@ const GetLibraryData = async () => {
     throw new Error("Failed to fetch data");
   }
   const data = await response.json();
+
   return data;
 };
 
@@ -18,10 +19,10 @@ const LibrarySection = async () => {
     <section className="max-w-7xl mx-auto px-4 py-10">
       <div className="mb-8">
         <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-          Exercise Library
+          The Library
         </h2>
         <p className="text-slate-600 dark:text-slate-400 mt-1">
-          Explore structured workouts, target muscle groups, and proper technique guides.
+          Twelve lifts covering every major muscle group.
         </p>
       </div>
 
