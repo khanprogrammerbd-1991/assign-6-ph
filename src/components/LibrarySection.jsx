@@ -9,7 +9,7 @@ const LibrarySection = async () => {
   const librarysData = await FullApi();
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-10">
+    <section id="library" className="max-w-7xl mx-auto px-4 py-10">
       <div className="mb-8">
         <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
           The Library

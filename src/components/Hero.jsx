@@ -4,7 +4,7 @@ import Image from 'next/image';
 const Hero = () => {
     return (
         <main className="container mx-auto flex items-center justify-between p-4 bg-gray-500 text-white">
-            <div>
+            <div className="flex flex-col items-start justify-center gap-4 p-4 text-white">
                 <div>
                     <h1>TRAIN WITH INTENT.LOG</h1>
                 <h1>EVERY SET.</h1>
@@ -12,9 +12,10 @@ const Hero = () => {
                 
                 </div>
                 <div>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold my-5 py-2 px-4 rounded">
-                        Browse Workout
-                    </button>
+                    
+                    <a href="#library" className="bg-blue-500 px-5 py-3 mt-8 rounded-md text-white hover:bg-blue-600 transition-colors">
+                      BROWSE WORKOUTS
+                    </a>
                 </div>
                 
             </div>

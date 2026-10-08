@@ -1,10 +1,10 @@
 import React from 'react';
+import Link from "next/link";
 
 const Card = ({item}) => {
     return (
-        <div
-          
-            className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+       <Link href={`/workout/${item.id}`}>
+        <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
             {/* Header Image & Badges */}
             <div className="relative h-52 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
@@ -98,6 +98,7 @@ const Card = ({item}) => {
               </div>
             </div>
           </div>
+          </Link>
     );
 };
 
