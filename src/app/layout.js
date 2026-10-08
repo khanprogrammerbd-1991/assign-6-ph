@@ -29,23 +29,30 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         
-       <ContextProvider>
-          <Navbar />
-          {children}
-       </ContextProvider>
+      <ContextProvider>
+    <Navbar />
+
+    {children}
+
+    <Toaster
+        position="top-right"
+        toastOptions={{
+            style: {
+                background: "#333",
+                color: "#fff",
+            },
+            success: {
+                iconTheme: {
+                    primary: "#4ade80",
+                    secondary: "#fff",
+                },
+            },
+        }}
+    />
+</ContextProvider>
 
         <Footer />
-        <Toaster position="top-right" toastOption ={{
-          style: {
-            background: '#333',
-            color: '#fff',
-          },
-          success: {
-            iconTheme: {
-              primary: '#4ade80',
-              secondary: '#fff',}
-            },
-        }} />
+  
 
 
       </body>
